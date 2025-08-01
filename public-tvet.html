@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Public TVET Colleges in South Africa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding-top: 38px; /* space for fixed header banner */
+      padding-left: 20px;
+      padding-right: 20px;
+      color: #1e293b;
+    }
+    /* Fixed header banner */
+    #creator-banner {
+      background-color: #1d4ed8;
+      color: white;
+      text-align: center;
+      padding: 8px 0;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      color: #1d4ed8;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      color: #64748b;
+    }
+    .download-button {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .download-button button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .download-button button:hover {
+      background-color: #1e40af;
+    }
+    .college-list {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .college-card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+    }
+    .college-card:hover {
+      transform: translateY(-3px);
+    }
+    .province {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+    .college-name {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .college-name a {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: 500;
+    }
+    .college-name a:hover {
+      color: #1e40af;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+    @media print {
+      a {
+        color: black !important;
+        text-decoration: underline;
+      }
+      .download-button {
+        display: none;
+      }
+      #creator-banner {
+        display: none;
+      }
+      body {
+        padding-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="creator-banner">
+    Created by Nhlakanipho Maxwell Kubheka — Founder of MaxStudyApp
+  </div>
+
+  <header>
+    <h1>📘 Public TVET Colleges in South Africa</h1>
+    <p>Apply online to any public TVET College by province</p>
+  </header>
+
+  <div class="download-button">
+    <button onclick="downloadPDF()">📥 Download College List (PDF)</button>
+  </div>
+
+  <section class="college-list" id="college-list">
+    <!-- Free State -->
+    <div class="college-card">
+      <div class="province">Free State</div>
+      <div class="college-name"><a href="https://www.motheotvet.co.za" target="_blank" rel="noopener noreferrer">Motheo TVET College</a></div>
+      <div class="college-name"><a href="https://www.goldfieldstvet.edu.za" target="_blank" rel="noopener noreferrer">Goldfields TVET College</a></div>
+      <div class="college-name"><a href="https://www.malutitvet.co.za" target="_blank" rel="noopener noreferrer">Maluti TVET College</a></div>
+    </div>
+
+    <!-- Mpumalanga -->
+    <div class="college-card">
+      <div class="province">Mpumalanga</div>
+      <div class="college-name"><a href="https://www.ehlanzenicollege.co.za/" target="_blank" rel="noopener noreferrer">Ehlanzeni TVET College</a></div>
+      <div class="college-name"><a href="https://www.gertsibande.edu.za/" target="_blank" rel="noopener noreferrer">Gert Sibande TVET College</a></div>
+      <div class="college-name"><a href="https://www.mpuhealth.gov.za/tvet/" target="_blank" rel="noopener noreferrer">Mpumalanga College Info</a></div>
+    </div>
+
+    <!-- KwaZulu-Natal -->
+    <div class="college-card">
+      <div class="province">KwaZulu-Natal</div>
+      <div class="college-name"><a href="https://www.majuba.edu.za" target="_blank" rel="noopener noreferrer">Majuba TVET College</a></div>
+      <div class="college-name"><a href="https://www.elangeni.edu.za" target="_blank" rel="noopener noreferrer">Elangeni TVET College</a></div>
+      <div class="college-name"><a href="https://www.mnambithicollege.co.za/" target="_blank" rel="noopener noreferrer">Mnambithi TVET College</a></div>
+    </div>
+
+    <!-- Gauteng -->
+    <div class="college-card">
+      <div class="province">Gauteng</div>
+      <div class="college-name"><a href="https://www.tnc.edu.za/" target="_blank" rel="noopener noreferrer">Tshwane North TVET College</a></div>
+      <div class="college-name"><a href="https://www.swgc.co.za/" target="_blank" rel="noopener noreferrer">South West Gauteng TVET</a></div>
+      <div class="college-name"><a href="https://www.eec.edu.za/" target="_blank" rel="noopener noreferrer">Ekurhuleni East TVET</a></div>
+    </div>
+
+    <!-- Western Cape -->
+    <div class="college-card">
+      <div class="province">Western Cape</div>
+      <div class="college-name"><a href="https://www.cct.edu.za/" target="_blank" rel="noopener noreferrer">College of Cape Town</a></div>
+      <div class="college-name"><a href="https://www.northlink.co.za/" target="_blank" rel="noopener noreferrer">Northlink College</a></div>
+      <div class="college-name"><a href="https://www.falsebaycollege.co.za/" target="_blank" rel="noopener noreferrer">False Bay TVET</a></div>
+    </div>
+
+    <!-- Eastern Cape -->
+    <div class="college-card">
+      <div class="province">Eastern Cape</div>
+      <div class="college-name"><a href="https://www.eastcape.org.za/" target="_blank" rel="noopener noreferrer">Eastcape Midlands TVET</a></div>
+      <div class="college-name"><a href="https://www.bccollege.co.za/" target="_blank" rel="noopener noreferrer">Buffalo City TVET</a></div>
+      <div class="college-name"><a href="https://www.kinghintsacollege.edu.za/" target="_blank" rel="noopener noreferrer">King Hintsa TVET</a></div>
+    </div>
+
+    <!-- Limpopo -->
+    <div class="college-card">
+      <div class="province">Limpopo</div>
+      <div class="college-name"><a href="https://www.capricorncollege.edu.za/" target="_blank" rel="noopener noreferrer">Capricorn TVET College</a></div>
+      <div class="college-name"><a href="https://www.lepcol.edu.za/" target="_blank" rel="noopener noreferrer">Lephalale TVET</a></div>
+      <div class="college-name"><a href="https://www.vhembecollege.edu.za/" target="_blank" rel="noopener noreferrer">Vhembe TVET College</a></div>
+    </div>
+
+    <!-- North West -->
+    <div class="college-card">
+      <div class="province">North West</div>
+      <div class="college-name"><a href="https://www.orbitcollege.co.za/" target="_blank" rel="noopener noreferrer">Orbit TVET College</a></div>
+      <div class="college-name"><a href="https://www.bokone.edu.za/" target="_blank" rel="noopener noreferrer">Bokone Bophirima TVET</a></div>
+      <div class="college-name"><a href="https://www.taletvetcollege.co.za/" target="_blank" rel="noopener noreferrer">Taletso TVET College</a></div>
+    </div>
+
+    <!-- Northern Cape -->
+    <div class="college-card">
+      <div class="province">Northern Cape</div>
+      <div class="college-name"><a href="https://ncrtvet.com/" target="_blank" rel="noopener noreferrer">Northern Cape Rural TVET</a></div>
+      <div class="college-name"><a href="https://nctvetcollege.edu.za/" target="_blank" rel="noopener noreferrer">Northern Cape Urban TVET</a></div>
+    </div>
+       <div class="job">
+      <h3>TVET Internship: Office Assistant</h3>
+      <p>Location: Johannesburg</p>
+      <p>Duration: 12 months</p>
+      <a href="#">Apply Now</a>
+    </div>
+
+    <div class="job">
+      <h3>TVET Internship: ICT Support</h3>
+      <p>Location: Cape Town</p>
+      <p>Closing Date: 10 Aug 2025</p>
+      <a href="#">Apply Now</a>
+    </div>
+
+    <div class="job">
+      <h3>TVET Internship: HR Administrator</h3>
+      <p>Location: Durban</p>
+      <p>Stipend: R4,500/month</p>
+      <a href="#">Apply Now</a>
+    </div>
+  </div>
+  </section>
+
+  <footer>
+    MaxStudyApp • Helping South Africans Apply with Confidence • Updated July 2025
+  </footer>
+
+<script>
+  async function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const colleges = document.querySelectorAll('.college-card');
+    let y = 10; 
+    const pageHeight = doc.internal.pageSize.height;
+    const leftMargin = 10;
+    const lineHeight = 7;
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(18);
+    doc.text("Public TVET Colleges in South Africa", leftMargin, y);
+    y += lineHeight + 3;
+
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'normal');
+
+    for (const collegeCard of colleges) {
+      const province = collegeCard.querySelector('.province').innerText;
+      if (y + lineHeight * 2 > pageHeight) {
+        doc.addPage();
+        y = 10;
+      }
+      doc.setFont(undefined, 'bold');
+      doc.text(province, leftMargin, y);
+      y += lineHeight;
+      doc.setFont(undefined, 'normal');
+
+      const collegeNames = collegeCard.querySelectorAll('.college-name a');
+      for (const a of collegeNames) {
+        if (y + lineHeight > pageHeight) {
+          doc.addPage();
+          y = 10;
+        }
+        const text = a.innerText;
+        const url = a.href;
+        doc.textWithLink(text, leftMargin + 5, y, { url });
+        y += lineHeight;
+      }
+      y += 5;
+    }
+
+    doc.save('Public_TVET_Colleges_South_Africa.pdf');
+  }
+</script>
+
+</body>
+</html>

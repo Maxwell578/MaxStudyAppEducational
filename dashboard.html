@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Dashboard | MaxStudyApp</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f4f6;
+    }
+
+    header {
+      background: #0077ff;
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    .logout-btn {
+      background: #ff4d4f;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .dashboard-container {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #0077ff;
+    }
+
+    .card p {
+      margin: 0.5rem 0 1rem;
+    }
+
+    .card button {
+      background: #0077ff;
+      color: white;
+      padding: 0.6rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      background: #0077ff;
+      color: white;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📊 My Dashboard</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </header>
+
+  <section class="dashboard-container">
+
+    <div class="card">
+      <h2>🔖 Bookmarked Jobs</h2>
+      <p>View and manage jobs you've saved.</p>
+      <button onclick="location.href='bookmarks.html'">Go to Bookmarks</button>
+    </div>
+
+    <div class="card">
+      <h2>🧠 AI Suggestions</h2>
+      <p>Get job ideas based on your interests and skills.</p>
+      <button onclick="location.href='ai-jobs.html'">Try AI Jobs</button>
+    </div>
+
+    <div class="card">
+      <h2>📄 Build Your CV</h2>
+      <p>Create a downloadable CV to attach to job applications.</p>
+      <button onclick="location.href='cv.html'">Start Building</button>
+    </div>
+
+    <div class="card">
+      <h2>🛠 Profile</h2>
+      <p>Update your name, email, or password (Firebase ready).</p>
+      <button onclick="alert('Coming soon')">Edit Profile</button>
+    </div>
+
+    <div class="card">
+      <h2>🚀 Find Jobs</h2>
+      <p>Browse and filter current jobs on MaxStudyApp.</p>
+      <button onclick="location.href='job-guide.html'">Job Guide</button>
+    </div>
+
+    <div class="card">
+      <h2>📬 Alerts</h2>
+      <p>Get email alerts for new jobs (feature coming).</p>
+      <button onclick="alert('Coming soon!')">Manage Alerts</button>
+    </div>
+
+  </section>
+
+  <footer>© 2025 MaxStudyApp — All rights reserved</footer>
+
+  <script>
+    function logout() {
+      // Future: Firebase signOut()
+      alert("You have been logged out!");
+      location.href = 'login.html';
+    }
+  </script>
+
+</body>
+</html>

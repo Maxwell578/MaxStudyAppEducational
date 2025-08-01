@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback – MaxStudyApp</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #2b6cb0;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #2b6cb0;
+    }
+
+    button {
+      background: #2b6cb0;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #1e4f91;
+    }
+
+    .success-message {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      text-align: center;
+      border: 1px solid #c3e6cb;
+    }
+
+    .icon {
+      margin-right: 8px;
+      color: #2b6cb0;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1><i class="fas fa-comment-dots icon"></i> We Value Your Feedback</h1>
+    <p class="subtitle">Help us improve MaxStudyApp by sharing your thoughts!</p>
+
+    <form id="feedbackForm">
+      <div>
+        <label for="name"><i class="fas fa-user icon"></i> Your Name</label>
+        <input type="text" id="name" name="name" placeholder="e.g. Nhlakanipho Maxwell" required />
+      </div>
+
+      <div>
+        <label for="email"><i class="fas fa-envelope icon"></i> Your Email</label>
+        <input type="email" id="email" name="email" placeholder="e.g. maxwell@gmail.com" required />
+      </div>
+
+      <div>
+        <label for="message"><i class="fas fa-comment icon"></i> Your Feedback</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell us what you love, or what we should improve..." required></textarea>
+      </div>
+
+      <button type="submit"><i class="fas fa-paper-plane icon"></i> Submit Feedback</button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+      <i class="fas fa-check-circle"></i> Thank you for your feedback!
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("feedbackForm");
+    const successMessage = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (name && email && message) {
+        // Save feedback to localStorage
+        const feedbackData = {
+          name,
+          email,
+          message,
+          date: new Date().toLocaleString()
+        };
+
+        let feedbackList = JSON.parse(localStorage.getItem("feedbackList")) || [];
+        feedbackList.push(feedbackData);
+        localStorage.setItem("feedbackList", JSON.stringify(feedbackList));
+
+        // Show success message
+        successMessage.style.display = "block";
+        form.reset();
+
+        setTimeout(() => {
+          successMessage.style.display = "none";
+        }, 4000);
+      }
+    });
+  </script>
+</body>
+</html>

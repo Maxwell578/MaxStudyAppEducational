@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Application | MaxStudyApp</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f2f8ff;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background: #0d47a1;
+      color: white;
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #0d47a1;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: #0d47a1;
+      color: white;
+      border: none;
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      display: block;
+      margin: auto;
+    }
+    button:hover {
+      background: #1565c0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Job Application Form</h1>
+  </header>
+
+  <div class="container">
+    <h2>Apply for a Job</h2>
+    <form id="jobForm">
+      <label>Full Name</label>
+      <input type="text" required>
+
+      <label>Email</label>
+      <input type="email" required>
+
+      <label>Position Applying For</label>
+      <select required>
+        <option value="">Select Position</option>
+        <option>Admin Clerk</option>
+        <option>Driver</option>
+        <option>Cleaner</option>
+        <option>Security</option>
+      </select>
+
+      <label>Upload CV</label>
+      <input type="file" required>
+
+      <label>Motivation / Cover Letter</label>
+      <textarea rows="5" required></textarea>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 MaxStudyApp | Powered by Maxwell Kubheka
+  </footer>
+
+</body>
+</html>

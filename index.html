@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MaxStudyApp | Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2563eb, #1e3a8a);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: #1e40af;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #e0f2fe;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      text-align: center;
+      padding: 30px 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .card a {
+      text-decoration: none;
+      color: #1d4ed8;
+      font-size: 1rem;
+      font-weight: 600;
+      display: block;
+    }
+
+    .card a::before {
+      content: "🔗 ";
+      font-size: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.95rem;
+      background-color: #f1f5f9;
+      color: #475569;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>MaxStudyApp Dashboard</h1>
+    <p>Created by Nhlakanipho Maxwell Kubheka | Smart Tools for Job & Study</p>
+  </header>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="login.html">🔐 Login</a>
+    <a href="signup.html">📝 Signup</a>
+    <a href="admin.html">🛠️ Admin Panel</a>
+  </nav>
+
+  <section class="grid">
+    <div class="card"><a href="application.html">📨 Applications</a></div>
+    <div class="card"><a href="cv.html">📄 CV Builder</a></div>
+    <div class="card"><a href="ai-jobs.html">🤖 AI Job Suggestion</a></div>
+    <div class="card"><a href="alerts.html">📢 Alerts</a></div>
+    <div class="card"><a href="auth.html">🛡️ Authentication</a></div>
+    <div class="card"><a href="dashboard.html">📊 User Dashboard</a></div>
+    <div class="card"><a href="feedback.html">💬 Feedback Form</a></div>
+    <div class="card"><a href="view-feedback.html">📂 View Feedback</a></div>
+    <div class="card"><a href="firebase-config.html">🔥 Firebase Config</a></div>
+    <div class="card"><a href="functions/">⚙️ Cloud Functions</a></div>
+    <div class="card"><a href="html2pdf.html">🖨️ PDF Generator</a></div>
+    <div class="card"><a href="main.html">🧠 Main Page</a></div>
+    <div class="card"><a href="motivation.html">🔥 Motivation Wall</a></div>
+    <div class="card"><a href="public-tvet.html">🏫 Public TVET</a></div>
+    <div class="card"><a href="government.html">🏛️ Government Jobs</a></div>
+    <div class="card"><a href="quotes.html">💬 Quotes</a></div>
+    <div class="card"><a href="saved-jobs.html">💼 Saved Jobs</a></div>
+    <div class="card"><a href="script.html">📜 Main Script</a></div>
+    <div class="card"><a href="social.html">🌐 Social Media</a></div>
+    <div class="card"><a href="study.html">📚 Study Room</a></div>
+    <div class="card"><a href="study-tips.html">💡 Study Tips</a></div>
+    <div class="card"><a href="style/">🎨 Style Folder</a></div>
+    <div class="card"><a href="scripts/">📁 JavaScript Folder</a></div>
+  </section>
+
+  <footer>
+    &copy; 2025 MaxStudyApp — All rights reserved. Powered by Maxwell Kubheka 🌍
+  </footer>
+
+</body>
+</html>

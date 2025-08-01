@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signup | MaxStudyApp</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background:#f0f2f5; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }
+    .container { background:#fff; padding:2rem; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); width:320px; }
+    input, button { width:100%; padding:0.7rem; margin:0.5rem 0; border-radius:6px; border:1px solid #ccc; }
+    button { background:#0077ff; color:#fff; border:none; cursor:pointer; font-weight:600; }
+    p { font-size:0.9rem; margin:0.5rem 0 0; }
+    a { color:#0077ff; text-decoration:none; }
+    #error { color:red; min-height:1.2em; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Sign Up</h2>
+  <input type="email" id="email" placeholder="Email" />
+  <input type="password" id="password" placeholder="Password (6+ chars)" />
+  <button onclick="signup()">Create Account</button>
+  <p>Already have an account? <a href="login.html">Login here</a></p>
+  <p id="error"></p>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+<script>
+  // Replace with your Firebase config
+  const firebaseConfig = {
+    apiKey: "YOUR_FIREBASE_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  function signup() {
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const errorElem = document.getElementById('error');
+    errorElem.textContent = '';
+
+    if (!email || !password) {
+      errorElem.textContent = 'Please enter email and password.';
+      return;
+    }
+    if (password.length < 6) {
+      errorElem.textContent = 'Password should be at least 6 characters.';
+      return;
+    }
+
+    auth.createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        alert('Account created! Redirecting to job guide...');
+        window.location.href = 'job-guide.html';
+      })
+      .catch(e => {
+        errorElem.textContent = e.message;
+      });
+  }
+</script>
+
+</body>
+</html>

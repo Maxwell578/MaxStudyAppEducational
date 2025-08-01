@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Tips | MaxStudyApp</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .study-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .study-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .study-header h1 {
+      font-size: 2.8rem;
+      color: #004080;
+    }
+
+    .study-header p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .study-tip {
+      background: #f0f8ff;
+      border-left: 6px solid #3a86ff;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+      animation: fadeInUp 0.8s ease both;
+    }
+
+    .study-tip h3 {
+      font-size: 1.5rem;
+      color: #003366;
+      margin-bottom: 8px;
+    }
+
+    .study-tip p {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .study-tip .icon {
+      font-size: 1.8rem;
+      margin-right: 10px;
+      color: #3a86ff;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .study-header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="study-header">
+    <h1>📚 Smart Study Tips</h1>
+    <p>Boost your focus and study like a pro with these powerful tips</p>
+  </header>
+
+  <main class="study-container">
+    <div class="study-tip">
+      <h3><span class="icon">⏰</span>Set a Study Schedule</h3>
+      <p>Plan your day and stick to time blocks for studying. Consistency builds results.</p>
+    </div>
+
+    <div class="study-tip">
+      <h3><span class="icon">📵</span>Minimize Distractions</h3>
+      <p>Turn off notifications, find a quiet space, and use focus tools like Forest or Pomodoro.</p>
+    </div>
+
+    <div class="study-tip">
+      <h3><span class="icon">📝</span>Take Smart Notes</h3>
+      <p>Use diagrams, bullet points, and highlights. Organize your notes so you learn faster.</p>
+    </div>
+
+    <div class="study-tip">
+      <h3><span class="icon">🔁</span>Review Regularly</h3>
+      <p>Don't cram! Instead, review your material every few days to help it stick in your mind.</p>
+    </div>
+
+    <div class="study-tip">
+      <h3><span class="icon">💧</span>Take Breaks & Stay Hydrated</h3>
+      <p>Your brain needs rest. Use 5-10 minute breaks and drink water to refresh your mind.</p>
+    </div>
+
+    <div class="study-tip">
+      <h3><span class="icon">✅</span>Practice & Test Yourself</h3>
+      <p>Use flashcards, past papers, or quizzes to reinforce learning actively.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MaxStudyApp. Keep learning. Keep growing. 💪</p>
+  </footer>
+</body>
+</html>

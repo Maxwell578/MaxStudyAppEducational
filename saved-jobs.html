@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Saved Jobs - MaxStudyApp</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📌 Saved Jobs</h1>
+    <p>Review and manage your bookmarked jobs.</p>
+    <a href="job-guide.html" class="btn">🔙 Back to Job Guide</a>
+  </header>
+
+  <section id="saved-jobs-container" class="job-list">
+    <!-- Jobs will load here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MaxStudyApp — Built for your success</p>
+  </footer>
+
+  <script>
+    function loadSavedJobs() {
+      const savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
+      const container = document.getElementById("saved-jobs-container");
+      container.innerHTML = "";
+
+      if (savedJobs.length === 0) {
+        container.innerHTML = "<p>No saved jobs yet.</p>";
+        return;
+      }
+
+      savedJobs.forEach(job => {
+        const jobCard = document.createElement("div");
+        jobCard.className = "job-card";
+        jobCard.innerHTML = `
+          <h3>${job.title}</h3>
+          <p>Search on: ${job.platform}</p>
+          <a href="${job.link}" class="btn" target="_blank">Apply</a>
+          <button class="btn" onclick="removeSavedJob('${job.id}')">Remove</button>
+        `;
+        container.appendChild(jobCard);
+      });
+    }
+
+    function removeSavedJob(id) {
+      let savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
+      savedJobs = savedJobs.filter(job => job.id !== id);
+      localStorage.setItem("savedJobs", JSON.stringify(savedJobs));
+      loadSavedJobs();
+    }
+
+    document.addEventListener("DOMContentLoaded", loadSavedJobs);
+  </script>
+</body>
+</html>

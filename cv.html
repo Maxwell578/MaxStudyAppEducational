@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV Builder | MaxStudyApp</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 20px;
+      color: #1f2937;
+    }
+    h1 { text-align: center; color: #2563eb; margin-bottom: 30px; }
+    form, #cvPreview {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+    .section { margin-bottom: 25px; }
+    .section h2 {
+      margin-bottom: 15px;
+      border-bottom: 2px solid #2563eb;
+      padding-bottom: 8px;
+      color: #1e40af;
+    }
+    label { display: block; margin-bottom: 6px; font-weight: 600; }
+    input, textarea, select {
+      width: 100%; padding: 10px; margin-bottom: 12px;
+      border: 1.8px solid #cbd5e1; border-radius: 8px; font-size: 1rem;
+    }
+    textarea { resize: vertical; min-height: 80px; }
+    button {
+      width: 100%; padding: 15px;
+      background-color: #2563eb; border: none;
+      color: white; font-weight: 700; font-size: 1.1rem;
+      cursor: pointer; border-radius: 10px;
+    }
+    button:hover { background-color: #1e40af; }
+    #cvPreview { display: none; padding: 20px; font-size: 16px; line-height: 1.6; }
+    #cvPreview h2 { margin-top: 20px; font-size: 20px; }
+  </style>
+</head>
+<body>
+
+  <h1>CV Builder</h1>
+
+  <form id="cvForm">
+    <!-- Personal Info -->
+    <div class="section">
+      <h2>Personal Information</h2>
+      <label>Full Name *</label>
+      <input type="text" id="fullName" required />
+
+      <label>Email *</label>
+      <input type="email" id="email" required />
+
+      <label>Phone *</label>
+      <input type="tel" id="phone" required />
+
+      <label>ID Number *</label>
+      <input type="text" id="idNumber" required />
+
+      <label>Marital Status *</label>
+      <select id="maritalStatus" required>
+        <option value="">Select</option>
+        <option>Single</option><option>Married</option>
+        <option>Divorced</option><option>Widowed</option>
+      </select>
+
+      <label>Nationality *</label>
+      <input type="text" id="nationality" required />
+
+      <label>Home Language</label>
+      <input type="text" id="language" />
+
+      <label>Driver's Licence</label>
+      <input type="text" id="license" placeholder="e.g. Code 8, Code 10" />
+
+      <label>Criminal Record</label>
+      <select id="criminalRecord">
+        <option value="">Select</option>
+        <option>No</option>
+        <option>Yes</option>
+      </select>
+
+      <label>Address</label>
+      <input type="text" id="address" />
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <h2>Educational Background</h2>
+      <label>Highest Qualification *</label>
+      <input type="text" id="qualification" required />
+
+      <label>Institution</label>
+      <input type="text" id="institution" />
+
+      <label>More Education Info</label>
+      <textarea id="eduDetails"></textarea>
+    </div>
+
+    <!-- Work -->
+    <div class="section">
+      <h2>Work Experience</h2>
+      <label>Job Title</label>
+      <input type="text" id="experience" />
+
+      <label>Company/Responsibilities</label>
+      <textarea id="expDetails"></textarea>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <h2>Skills</h2>
+      <textarea id="skills" placeholder="e.g. Word, Excel, Communication"></textarea>
+    </div>
+
+    <!-- References -->
+    <div class="section">
+      <h2>References</h2>
+      <label>Reference 1</label>
+      <textarea id="ref1" placeholder="Name, Position, Contact"></textarea>
+
+      <label>Reference 2</label>
+      <textarea id="ref2"></textarea>
+    </div>
+
+    <button type="button" onclick="downloadCV()">Download CV as PDF</button>
+  </form>
+
+  <!-- CV Preview (invisible) -->
+  <div id="cvPreview">
+    <h2>CV - Personal Information</h2>
+    <p><strong>Name:</strong> <span id="pFullName"></span></p>
+    <p><strong>Email:</strong> <span id="pEmail"></span></p>
+    <p><strong>Phone:</strong> <span id="pPhone"></span></p>
+    <p><strong>ID Number:</strong> <span id="pID"></span></p>
+    <p><strong>Marital Status:</strong> <span id="pMarital"></span></p>
+    <p><strong>Nationality:</strong> <span id="pNation"></span></p>
+    <p><strong>Language:</strong> <span id="pLang"></span></p>
+    <p><strong>Driver's Licence:</strong> <span id="pLicense"></span></p>
+    <p><strong>Criminal Record:</strong> <span id="pCriminal"></span></p>
+    <p><strong>Address:</strong> <span id="pAddress"></span></p>
+
+    <h2>Education</h2>
+    <p><strong>Qualification:</strong> <span id="pQual"></span></p>
+    <p><strong>Institution:</strong> <span id="pInst"></span></p>
+    <p><span id="pEduDetails"></span></p>
+
+    <h2>Work Experience</h2>
+    <p><strong>Job:</strong> <span id="pJob"></span></p>
+    <p><span id="pExp"></span></p>
+
+    <h2>Skills</h2>
+    <p><span id="pSkills"></span></p>
+
+    <h2>References</h2>
+    <p><span id="pRef1"></span></p>
+    <p><span id="pRef2"></span></p>
+  </div>
+
+  <script>
+    function downloadCV() {
+      // Fill preview with values
+      document.getElementById("pFullName").innerText = document.getElementById("fullName").value;
+      document.getElementById("pEmail").innerText = document.getElementById("email").value;
+      document.getElementById("pPhone").innerText = document.getElementById("phone").value;
+      document.getElementById("pID").innerText = document.getElementById("idNumber").value;
+      document.getElementById("pMarital").innerText = document.getElementById("maritalStatus").value;
+      document.getElementById("pNation").innerText = document.getElementById("nationality").value;
+      document.getElementById("pLang").innerText = document.getElementById("language").value;
+      document.getElementById("pLicense").innerText = document.getElementById("license").value;
+      document.getElementById("pCriminal").innerText = document.getElementById("criminalRecord").value;
+      document.getElementById("pAddress").innerText = document.getElementById("address").value;
+      document.getElementById("pQual").innerText = document.getElementById("qualification").value;
+      document.getElementById("pInst").innerText = document.getElementById("institution").value;
+      document.getElementById("pEduDetails").innerText = document.getElementById("eduDetails").value;
+      document.getElementById("pJob").innerText = document.getElementById("experience").value;
+      document.getElementById("pExp").innerText = document.getElementById("expDetails").value;
+      document.getElementById("pSkills").innerText = document.getElementById("skills").value;
+      document.getElementById("pRef1").innerText = document.getElementById("ref1").value;
+      document.getElementById("pRef2").innerText = document.getElementById("ref2").value;
+
+      const element = document.getElementById("cvPreview");
+      element.style.display = "block";
+
+      html2pdf().from(element).save("My_CV.pdf");
+
+      setTimeout(() => {
+        element.style.display = "none"; // hide after saving
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

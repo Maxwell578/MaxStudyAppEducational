@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SA Government Jobs | MaxStudyApp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #1f2937;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #2563eb;
+    }
+
+    .search-bar {
+      max-width: 500px;
+      margin: 20px auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 10px;
+      border: 2px solid #2563eb;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .job-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .job-card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .job-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .job-icon {
+      font-size: 40px;
+      color: #2563eb;
+      margin-bottom: 10px;
+    }
+
+    .job-card h3 {
+      color: #1e3a8a;
+      margin-bottom: 5px;
+    }
+
+    .job-card p {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .job-card a {
+      align-self: start;
+      background-color: #2563eb;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .job-card a:hover {
+      background-color: #1e40af;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🇿🇦 South African Government Jobs Portal</h1>
+    <div class="search-bar">
+      <input type="text" placeholder="Search department or province (coming soon)">
+    </div>
+  </header>
+
+  <section class="job-grid">
+    <div class="job-card">
+      <div class="job-icon">🏛️</div>
+      <h3>DPSA Government Circular</h3>
+      <p>Official national & provincial job listings updated weekly.</p>
+      <a href="https://www.gov.za/about-government/government-jobs" target="_blank">Browse DPSA Jobs</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-icon">📊</div>
+      <h3>Stats SA Internship Programme</h3>
+      <p>Available for recent graduates in data & research. Apply now.</p>
+      <a href="https://careers23.co.za/category/government-jobs/" target="_blank">Apply on Careers23</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-icon">👮</div>
+      <h3>Client Service Officers – Dept of Labour</h3>
+      <p>Permanent posts open nationwide. Closing 28 August 2025.</p>
+      <a href="https://lnkd.in/dYTs-MpA" target="_blank">Apply via LinkedIn</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-icon">📂</div>
+      <h3>Admin Clerk – Office of the Chief Justice</h3>
+      <p>Grade 12 entry. Closing 25 August 2025.</p>
+      <a href="https://governmentvacancies.co.za" target="_blank">Visit Listing</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-icon">🧹</div>
+      <h3>Cleaner / Groundsman – Dept of Health</h3>
+      <p>Open positions in clinics and hospitals across provinces.</p>
+      <a href="https://governmentvacancies.co.za" target="_blank">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-icon">🚗</div>
+      <h3>Driver – Free State Provincial Government</h3>
+      <p>Code 10/14 drivers needed. Apply by 22 August 2025.</p>
+      <a href="https://governmentjobs.co.za" target="_blank">Apply Online</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-icon">🏫</div>
+      <h3>Majuba College Applications</h3>
+      <p>Apply for learnerships, NCV, and NATED 2025 intake.</p>
+      <a href="https://www.majuba.edu.za" target="_blank">Apply on Majuba</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-icon">💼</div>
+      <h3>Bursaries & Learnerships</h3>
+      <p>Check 2025 bursaries available for youth & graduates.</p>
+      <a href="https://bursaries-southafrica.co.za" target="_blank">View Bursaries</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-icon">🌐</div>
+      <h3>YouthSA Jobs – National Youth Dev Agency</h3>
+      <p>Visit the NYDA job opportunities board for youth programs.</p>
+      <a href="https://www.nyda.gov.za" target="_blank">Visit NYDA</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-icon">📮</div>
+      <h3>Vrede & QwaQwa Municipality Posts</h3>
+      <p>Check municipal pages for admin, EPWP, and general work.</p>
+      <a href="https://phumelela.gov.za" target="_blank">Visit Municipality Site</a>
+    </div>
+    
+    <div class="job-card">
+      <div class="job-title">NSFAS Funding Application</div>
+      <div class="job-desc">Apply for government-funded bursaries through NSFAS for universities and TVET colleges.</div>
+      <a class="job-link" href="https://www.nsfas.org.za" target="_blank">Apply via NSFAS</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-title">TVET Colleges in Mpumalanga</div>
+      <div class="job-desc">Find application portals for TVET colleges in Mpumalanga province.</div>
+      <a class="job-link" href="https://www.ehlanzenicollege.co.za/" target="_blank">Ehlanzeni TVET</a>
+      <a class="job-link" href="https://www.mpuhealth.gov.za/tvet/" target="_blank">More TVET Info</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-title">University of the Free State (UFS)</div>
+      <div class="job-desc">Online application portal for undergrad and postgrad studies at UFS.</div>
+      <a class="job-link" href="https://www.ufs.ac.za" target="_blank">Apply to UFS</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-title">TVET Colleges in Free State</div>
+      <div class="job-desc">Apply to Free State TVET Colleges: Goldfields, Maluti, and Motheo.</div>
+      <a class="job-link" href="https://www.goldfieldstvet.edu.za/" target="_blank">Goldfields TVET</a>
+      <a class="job-link" href="https://www.malutitvet.co.za/" target="_blank">Maluti TVET</a>
+      <a class="job-link" href="https://www.motheotvet.co.za/" target="_blank">Motheo TVET</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-title">DPSA Circular Jobs</div>
+      <div class="job-desc">View and apply for government posts listed weekly on the Public Service Vacancy Circular.</div>
+      <a class="job-link" href="https://www.dpsa.gov.za/newsroom/psvc/" target="_blank">View Circular</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-title">Careers24 – SA Jobs</div>
+      <div class="job-desc">Thousands of jobs posted daily. Apply using your CV or LinkedIn profile.</div>
+      <a class="job-link" href="https://www.careers24.com/jobs/" target="_blank">Search Jobs</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-title">NYDA Youth Jobs</div>
+      <div class="job-desc">Opportunities for young people in internships, learnerships, and entrepreneurship.</div>
+      <a class="job-link" href="https://www.nyda.gov.za" target="_blank">Visit NYDA</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-title">Majuba TVET College</div>
+      <div class="job-desc">Apply for courses, internships, and bursaries at Majuba TVET in KZN.</div>
+      <a class="job-link" href="https://www.majuba.edu.za/" target="_blank">Visit Majuba</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-title">SASSA Jobs & Internships</div>
+      <div class="job-desc">Opportunities for admin assistants, interns, and entry-level workers at SASSA.</div>
+      <a class="job-link" href="https://www.sassa.gov.za" target="_blank">Visit SASSA</a>
+    </div>
+
+    <div class="job-card">
+      <div class="job-title">UIF & Labour Dept Jobs</div>
+      <div class="job-desc">Apply for jobs and services through the Department of Employment and Labour.</div>
+      <a class="job-link" href="https://www.labour.gov.za" target="_blank">Visit Labour Site</a>
+    </div>
+  </section>
+
+  <footer>
+    MaxStudyApp • Updated July 2025 • All links verified
+  </footer>
+
+</body>
+</html>

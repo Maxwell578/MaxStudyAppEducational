@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Motivation - MaxStudyApp</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: linear-gradient(to right, #eaf6ff, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      color: #004080;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+    }
+
+    #quote-box {
+      background: #f4faff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom: 25px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    #quote-text {
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #333;
+      min-height: 80px;
+    }
+
+    .btn {
+      padding: 14px 24px;
+      background-color: #3a86ff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #265dd1;
+    }
+
+    .share-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn.share {
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .whatsapp { background-color: #25D366; }
+    .twitter { background-color: #1DA1F2; }
+    .facebook { background-color: #1877F2; }
+
+    .btn.share:hover {
+      opacity: 0.85;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💡 Daily Motivation</h1>
+
+    <div id="quote-box">
+      <p id="quote-text">Loading...</p>
+    </div>
+
+    <button class="btn" id="new-quote-btn">🔄 New Quote</button>
+
+    <div class="share-buttons">
+      <p>Share this quote:</p>
+      <a href="#" id="whatsapp-share" class="btn share whatsapp">WhatsApp</a>
+      <a href="#" id="twitter-share" class="btn share twitter">Twitter</a>
+      <a href="#" id="facebook-share" class="btn share facebook">Facebook</a>
+    </div>
+  </div>
+
+  <script>
+    const quotes = [
+      "Believe in yourself and all that you are.",
+      "Success doesn't come from what you do occasionally. It comes from what you do consistently.",
+      "You are capable of amazing things.",
+      "Don't watch the clock; do what it does. Keep going.",
+      "Your future is created by what you do today, not tomorrow.",
+      "Small steps every day lead to big results.",
+      "Push yourself, because no one else is going to do it for you.",
+      "Stay positive, work hard, make it happen.",
+      "Opportunities don't happen. You create them.",
+      "Keep learning, keep growing, keep moving forward."
+    ];
+
+    const quoteText = document.getElementById("quote-text");
+    const quoteButton = document.getElementById("new-quote-btn");
+
+    function updateShareLinks(quote) {
+      const encodedQuote = encodeURIComponent(quote);
+      document.getElementById("whatsapp-share").href = `https://wa.me/?text=${encodedQuote}`;
+      document.getElementById("twitter-share").href = `https://twitter.com/intent/tweet?text=${encodedQuote}`;
+      document.getElementById("facebook-share").href = `https://www.facebook.com/sharer/sharer.php?u=&quote=${encodedQuote}`;
+    }
+
+    function showRandomQuote() {
+      const index = Math.floor(Math.random() * quotes.length);
+      const selected = quotes[index];
+      quoteText.textContent = selected;
+      updateShareLinks(selected);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      showRandomQuote();
+      quoteButton.addEventListener("click", showRandomQuote);
+    });
+  </script>
+</body>
+</html>
